@@ -3,7 +3,7 @@ import cv2
 import math
 import sys
 import numpy as np
-#테스트용2
+#테스트용3
 def getColorFeature(img):
     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     h, s, v = cv2.split(img_hsv)
