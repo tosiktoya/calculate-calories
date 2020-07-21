@@ -57,7 +57,7 @@ def process(img, filters):
 def getTextureFeature(img):
     '''
     주어진 이미지에 대해 가버필터를 계산하여
-    이미지의 질감 특징을 추출해낸다.
+    이미지의 질감 특징을 추출해낸다
     '''
     filters = build_filters()
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
