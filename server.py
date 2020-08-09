@@ -1,28 +1,38 @@
-# -*- coding: utf-8 -*-
-
-from flask import Flask, render_template, request
+import os
+from flask import Flask, request
 from werkzeug.utils import secure_filename
+import feature_color
+UPLOAD_DIR = ""
 
 app = Flask(__name__)
+app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
-#업로드 html 렌더링
 @app.route('/')
-def render_file():
-    return render_template('upload.html')
+def upload_main():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>File Upload</title>
+    </head>
+    <body>
+        <form action="http://localhost:5000/file-upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit">
+        </form>
+    </body>
+    </html>"""
 
-#파일 업로드 처리
-@app.route('/fileUpload', methods = ['GET', 'POST'])
-def upload_file():
-    if request.method =='POST':
-        f = request.file['file']
-        #저장할 경로 + 파일명
-        f.save(secure_filename(f.filename))
-        return 'uploads 디렉토리 --> 파일 업로드 성공!'
+@app.route('/file-upload', methods=['GET', 'POST'])
+def upload_files():
+    if request.method == 'POST':
+        f = request.files['file']
+        fname = secure_filename(f.filename)
+        path = os.path.join(app.config['UPLOAD_DIR'], fname)
+        f.save(path)
+        return 'File upload complete (%s)' % path
 
-
-#def index():
-
- #       return render_template('index.html')
 if __name__ == '__main__':
-
-   app.run(debug = True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
