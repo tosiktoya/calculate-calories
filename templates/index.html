@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Calorie Estimation</title>
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Material Design Bootstrap -->
+
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+  <!-- Your custom styles (optional) -->
+
+  <link href="css/style.min.css" rel="stylesheet">
+
+  <style type="text/css">
+
+
+
+    html,
+
+    body,
+
+    header,
+
+    .carousel {
+
+      height: 100%;
+
+    }
+
+
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+            .navbar:not(.top-nav-collapse) {
+
+                background: #1C2331!important;
+
+            }
+
+        }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
+
+        <strong>VEGITA</strong>
+
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+
+        aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+
+            <a class="nav-link" href="#">HOME
+
+              <span class="sr-only">(current)</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+
+
+        <ul class="navbar-nav nav-flex-icons">
+
+          <li class="nav-item">
+
+            <a href="#" class="nav-link border border-light rounded"
+
+              target="_blank">
+
+              <i class="fa fa-github mr-2"></i>GITHUB
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+
+      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+
+      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+
+      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-item active">
+
+        <div class="view">
+
+          <video class="video-intro" autoplay loop>
+
+            <source src="https://mdbootstrap.com/img/video/city.mp4" type="video/mp4" >
+
+          </video>
+
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <div class="text-center white-text mx-5 wow fadeIn">
+
+              <h1 class="mb-4">
+
+                <strong>음식 칼로리 예측 프로그램</strong>
+
+              </h1>
+
+              <p>
+
+                <strong>빠르고 정확하게 입력한 음식의 칼로리를 측정합니다.</strong>
+
+              </p>
+
+              <p class="mb-4 d-none d-md-block">
+
+                <strong>머신러닝 SVM 모델 및 openCV를 통한 이미지 프로세싱을 통하여 음식의 칼로리를 추출합니다.</strong>
+
+              </p>
+
+              <a target="_blank" href="#" class="btn btn-outline-white btn-lg">START
+
+                <i class="fa fa-graduation-cap ml-2"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="carousel-item">
+
+        <div class="view">
+
+          <video class="video-intro" autoplay loop>
+
+              <source src="https://mdbootstrap.com/img/video/forest.mp4" type="video/mp4">
+
+          </video>
+
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <div class="text-center white-text mx-5 wow fadeIn">
+
+              <h1 class="mb-4">
+
+                <strong>배추 가격 예측 AI 로봇</strong>
+
+              </h1>
+
+              <p>
+
+                <strong>빠르고 정확하게 향후 배추 가격을 예측합니다.</strong>
+
+              </p>
+
+              <p class="mb-4 d-none d-md-block">
+
+                <strong>기상청 전국 기온 및 강수량 데이터와 전국 월별 배추 가격 빅 데이터를 분석하여 시계열 수치 예측을 수행합니다</strong>
+
+              </p>
+
+              <a target="_blank" href="#" class="btn btn-outline-white btn-lg">START
+
+                <i class="fa fa-graduation-cap ml-2"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="carousel-item">
+
+        <div class="view">
+
+          <video class="video-intro" autoplay loop>
+
+              <source src="https://mdbootstrap.com/img/video/Tropical.mp4" type="video/mp4">
+
+          </video>
+
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <div class="text-center white-text mx-5 wow fadeIn">
+
+              <h1 class="mb-4">
+
+                <strong>배추 가격 예측 AI 로봇</strong>
+
+              </h1>
+
+              <p>
+
+                <strong>빠르고 정확하게 향후 배추 가격을 예측합니다.</strong>
+
+              </p>
+
+              <p class="mb-4 d-none d-md-block">
+
+                <strong>기상청 전국 기온 및 강수량 데이터와 전국 월별 배추 가격 빅 데이터를 분석하여 시계열 수치 예측을 수행합니다</strong>
+
+              </p>
+
+              <a target="_blank" href="#" class="btn btn-outline-white btn-lg">START
+
+                <i class="fa fa-graduation-cap ml-2"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+      <span class="sr-only">Previous</span>
+
+    </a>
+
+    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+      <span class="sr-only">Next</span>
+
+    </a>
+
+
+
+  </div>
+
+
+
+  <main>
+
+    <div class="container">
+
+      <section class="mt-5 wow fadeIn">
+
+        <div class="row">
+
+          <div class="col-md-6 mb-4">
+
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" class="img-fluid z-depth-1-half" alt="">
+
+          </div>
+
+          <div class="col-md-6 mb-4">
+
+            <h3 class="h3 mb-3">음식 칼로리 측정 결과</h3>
+
+            <p>머신 러닝 기계 학습(SVM) 모델에 따른 음식 칼로리를 측정하고 학습 결과를 확인했습니다.</p>
+
+            <hr>
+
+            <p>2,900개 이상의 데이터를 활용하여 1.8% 미만의 데이터 오차율을 보이는 음식 칼로릴 측정 모델을 개발했습니다.
+
+            </p>
+
+            <a target="_blank" href="#" class="btn btn-grey btn-md">Download
+
+              <i class="fa fa-download ml-1"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <hr class="my-5">
+
+
+
+      <section>
+
+        <h3 class="h3 text-center mb-5">음식 칼로리 측정하기</h3>
+
+        <div class="row wow fadeIn">
+
+          <div class="col-lg-6 col-md-12 px-4">
+
+            음식 이미지 업로드
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+
+            결과 :
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+    </div>
+
+  </main>
+
+
+
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <div class="footer-copyright py-3">
+
+      © 2020 Copyright:
+
+      <a href="#" target="_blank"> 7조 </a>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- SCRIPTS -->
+
+  <!-- JQuery -->
+
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+  <!-- Bootstrap tooltips -->
+
+  <script type="text/javascript" src="js/popper.min.js"></script>
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <!-- MDB core JavaScript -->
+
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+  <!-- Initializations -->
+
+  <script type="text/javascript">
+
+    // Animations initialization
+
+    new WOW().init();
+
+  </script>
+
+</body>
+
+
+
+</html>
+
+
+
