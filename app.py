@@ -79,11 +79,11 @@ def upload():
 
             # calculate calories
             volume = getVolume(result[0], fruit_areas[0], skin_areas[0], pix_cm[0], fruit_contours[0])
-            mass, cal, cal_100, carbo_100, pro_100, fat_100, choles_100, nat_100 = getCalorie(result[0], volume)
+            mass, cal, cal_100, carbo, pro, fat, choles, nat = getCalorie(result[0], volume)
 
             class_name = classes[result[0]]
             return render_template('upload.html', label=class_name, img=image_name, mass=mass, cal=cal, cal_100=cal_100,
-                                   carbo_100=carbo_100, pro_100=pro_100, fat_100=fat_100, choles_100=choles_100, nat_100=nat_100)
+                                   carbo=carbo, pro=pro, fat=fat, choles=choles, nat=nat)
     return
 
 if __name__ == '__main__':

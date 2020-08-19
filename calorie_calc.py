@@ -46,24 +46,33 @@ def getCalorie(label, volume):  # volume in cm^3
     so that the food item can be identified uniquely.
     The calorie content in the given volume of the food item is calculated.
     '''
-    calorie_100 = calorie_dict[int(label)]
-    carbohydrate_100 = carbohydrate_dict[int(label)]
-    protein_100 = protein_dict[int(label)]
-    fat_100 = fat_dict[int(label)]
-    cholesterol_100 = cholesterol_dict[int(label)]
-    natrium_100 = natrium_dict[int(label)]
-
-    if (volume == None):
-        return None, None, calorie_100, carbohydrate_100, protein_100, fat_100, cholesterol_100, natrium_100
     density = density_dict[int(label)]
     mass = volume * density * 1.0
+
+    calorie_100 = calorie_dict[int(label)]
+    carbohydrate = (carbohydrate_dict[int(label)] / 100) * mass
+    protein = (protein_dict[int(label)] / 100) * mass
+    fat = (fat_dict[int(label)] / 100) * mass
+    cholesterol = (cholesterol_dict[int(label)] / 100) * mass
+    natrium = (natrium_dict[int(label)] / 100) * mass
+
+    carbohydrate = round(carbohydrate, 2)
+    protein = round(protein, 2)
+    fat = round(fat, 2)
+    cholesterol = round(cholesterol, 2)
+    natrium = round(natrium, 2)
+
+    if (volume == None):
+        return None, None, calorie_100, carbohydrate, protein, fat, cholesterol, natrium
+
     calorie_tot = (calorie_100 / 100.0) * mass
+
 
     mass = round(mass, 2)
     calorie_tot = round(calorie_tot, 2)
 
     # calories and nutrients per 100 grams
-    return mass, calorie_tot, calorie_100, carbohydrate_100, protein_100, fat_100, cholesterol_100, natrium_100
+    return mass, calorie_tot, calorie_100, carbohydrate, protein, fat, cholesterol, natrium
 
 
 def getVolume(label, area, skin_area, pix_to_cm_multiplier, fruit_contour):
