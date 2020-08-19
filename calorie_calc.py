@@ -88,13 +88,22 @@ def getVolume(label, area, skin_area, pix_to_cm_multiplier, fruit_contour):
         height = max(fruit_rect[1]) * pix_to_cm_multiplier
         radius = area_fruit / (2.0 * height)
         volume = np.pi * radius * radius * height
+
     # cheese, carrot, sauce, bread
     if (label == 4 and area_fruit < 30) or (label == 5) or (label == 11) or (label == 15) or (label == 20):
         volume = area_fruit * 0.5  # assuming width = 0.5 cm
 
+    if (label == 3):
+        volume = area_fruit * 1 # assuming width = 0.5 cm
+
+    if (label == 8):
+        volume = area_fruit * 3 # assuming width = 0.5 cm
+
     # pasta, watermelon, beans, capsicum
-    if (label == 8) or (label == 14) or (label == 3) or (label == 13):
-        volume = None
+    if (label == 13) or (label == 14) :
+        sqaure_radius = np.sqrt(area_fruit)
+        volume = sqaure_radius * sqaure_radius * sqaure_radius
+
 
     # egg, lemon
     if (label == 16) or (label == 17):
