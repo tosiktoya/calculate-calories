@@ -7,6 +7,9 @@ from create_feature import *
 from calorie_calc import *
 import csv
 
+# 탄수화물, 단백질, 지방, 콜레스테롤, 나트륨
+nutrient_dict = {0: 130, 1: 100, 2: 51, 3: 300, 4: 2000, 5: 800}
+
 #from tensorflow import keras
 
 app = Flask(__name__)
@@ -81,9 +84,48 @@ def upload():
             volume = getVolume(result[0], fruit_areas[0], skin_areas[0], pix_cm[0], fruit_contours[0])
             mass, cal, cal_100, carbo, pro, fat, choles, nat = getCalorie(result[0], volume)
 
+            Alarm_message = " "
+            exceed_message = "이(가) 일일 적정섭취량을 초과하였습니다."
+
+            if(carbo > nutrient_dict[0]):
+                if(len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 탄수화물 "
+                else:
+                    Alarm_message = Alarm_message + " , 탄수화물 "
+            if(pro > nutrient_dict[1]):
+                if (len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 단백질 "
+                else:
+                    Alarm_message = Alarm_message + " , 단백질 "
+            if(fat > nutrient_dict[2]):
+                if (len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 지방 "
+                else:
+                    Alarm_message = Alarm_message + " , 지방 "
+            if(choles > nutrient_dict[3]):
+                if (len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 콜레스테롤 "
+                else:
+                    Alarm_message = Alarm_message + " , 콜레스테롤 "
+            if(nat > nutrient_dict[4]):
+                if (len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 나트륨 "
+                else:
+                    Alarm_message = Alarm_message + " , 나트륨 "
+            if(cal > nutrient_dict[5]):
+                if(len(Alarm_message) < 3):
+                    Alarm_message = Alarm_message + " 한끼칼로리 "
+                else:
+                    Alarm_message = Alarm_message + " , 한끼칼로리 "
+
+            if(len(Alarm_message) > 3):
+                message = Alarm_message + exceed_message
+            else:
+                message = " "
+
             class_name = classes[result[0]]
             return render_template('upload.html', label=class_name, img=image_name, mass=mass, cal=cal, cal_100=cal_100,
-                                   carbo=carbo, pro=pro, fat=fat, choles=choles, nat=nat)
+                                   carbo=carbo, pro=pro, fat=fat, choles=choles, nat=nat, mes=message)
     return
 
 if __name__ == '__main__':
