@@ -2,8 +2,6 @@
 
 <html lang="en">
 
-
-
 <head>
 
   <meta charset="utf-8">
@@ -12,13 +10,13 @@
 
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Calorie Estimation</title>
+  <title>음식 칼로리 측정 프로그램</title>
 
   <!-- Font Awesome -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap core CSS -->
+ <!-- Bootstrap core CSS -->
 
   <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -92,7 +90,7 @@
 
           <li class="nav-item active">
 
-            <a class="nav-link" href="http://127.0.0.1:5000/">HOME
+            <a class="nav-link" href="#">HOME
 
               <span class="sr-only">(current)</span>
 
@@ -173,12 +171,14 @@
                 <strong>머신러닝 SVM 모델 및 openCV를 통한 이미지 프로세싱을 통하여 음식의 칼로리를 추출합니다.</strong>
 
               </p>
-              <form action="/upload">
-              <button class="btn btn-outline-white btn-lg">START
-              </button>
-              </form>
 
+                <form action="/upload">
+                  <button class="btn btn-outline-white btn-lg">START
+                  </button>
+                </form>
                 <i class="fa fa-graduation-cap ml-2"></i>
+
+              </a>
 
             </div>
 
@@ -188,25 +188,91 @@
 
       </div>
 
+
+
+    </div>
+
+
   </div>
+
+
+
+  <main>
+
+    <div class="container">
+
+      <section class="mt-5 wow fadeIn">
+
+        <div class="row">
+
+          <div class="col-md-6 mb-4">
+
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" class="img-fluid z-depth-1-half" alt="">
+
+          </div>
+
+          <div class="col-md-6 mb-4">
+
+            <h3 class="h3 mb-3">음식 칼로리 측정 결과</h3>
+
+            <p>머신 러닝 SVM 모델을 확장하여 음식 이미지에 따른 칼로리를 예측하고 학습 결과를 확인했습니다. 음식의 칼로리를 효과적으로 예측할 수 있습니다.</p>
+
+            <hr>
+
+            <p>2,900개 이상의 데이터를 활용하여 1.8% 미만의 데이터 오차율을 보이는 음식 칼로리 예측 모델을 개발했습니다.
+
+            </p>
+
+            <a target="_blank" href="Bootstrap-4-templates-master (1).zip" class="btn btn-grey btn-md">Download
+
+              <i class="fa fa-download ml-1"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <hr class="my-5">
+
+    </div>
+
+  </main>
+
+
+
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <div class="footer-copyright py-3">
+
+      © 2020 Copyright:
+
+      <a href="#" target="_blank"> 부산대학교 졸업과제 17조 칼로리 </a>
+
+    </div>
+
+  </footer>
 
   <!-- SCRIPTS -->
 
+
   <!-- JQuery -->
 
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
 
   <!-- Bootstrap tooltips -->
 
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
 
   <!-- Bootstrap core JavaScript -->
 
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 
   <!-- MDB core JavaScript -->
 
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
 
   <!-- Initializations -->
 
@@ -220,7 +286,6 @@
 
 </body>
 
+
+
 </html>
-
-
-
