@@ -79,9 +79,23 @@
 
 }
 }
-
-
-    </style>
+    table {
+        width: 100%;
+        border: 1px solid #333333;
+      }
+      tr{
+        padding: 10px;
+        text-align:center;
+      }
+      td {
+        padding: 10px;
+        border: 1px solid #333333;
+        text-align:center;
+      }
+      .b {
+        border-spacing: 5px;
+      }
+ </style>
 </head>
 <body>
 
@@ -89,9 +103,9 @@
 
     <div class="container">
 
-      <a class="navbar-brand" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
+      <a class="navbar-brand" href="https://cse.pusan.ac.kr/cse/index..do" target="_blank">
 
-        <strong>VEGITA</strong>
+        <strong>PNU CSE</strong>
 
       </a>
 
@@ -109,7 +123,7 @@
 
           <li class="nav-item active">
 
-            <a class="nav-link" href="#">HOME
+            <a class="nav-link" href="/">HOME
 
               <span class="sr-only">(current)</span>
 
@@ -187,7 +201,9 @@
         <div class="row">
 
           <div class="col-md-6 mb-4">
-            <img src="{{url_for('static', filename=img)}}" class="img-fluid z-depth-1-half">
+              {% if img %}
+              <img src="{{url_for('static', filename=img)}}" class="img-fluid z-depth-1-half">
+              {% endif %}
           </div>
 
           <div class="col-md-6 mb-4">
@@ -197,10 +213,22 @@
             <p>머신 러닝 SVM 모델을 확장하여 음식 이미지에 따른 칼로리를 예측하고 학습 결과를 확인했습니다. 그 결과 음식의 칼로리를 효과적으로 예측할 수 있습니다.</p>
               {% if img %}
                   <div>
-                      <p>  음식명 : {{ label }}  </p>
-                      <p>  질량 : {{ mass }}g  </p>
-                      <p> 칼로리 : {{ cal }}kcal </p>
-                      <p> 100g 당 칼로리 : {{ cal_100 }}kcal </p>
+                      <table class="b">
+                          <th>음식명</th><th>질량</th><th>칼로리</th><th>100g당 칼로리</th>
+                          <tr>
+                              <td>{{ label }}</td><td>{{ mass }}g</td><td>{{ cal }}kcal</td><td>{{ cal_100 }}kcal</td>
+                          </tr>
+                      </table>
+                      <p></p>
+                      <table class="b">
+                          <th>탄수화물</th><th>단백질</th><th>지방</th><th>콜레스테롤</th><th>나트륨</th>
+                          <tr>
+                              <td>{{ carbo }}</td><td>{{ pro }}g</td><td>{{ fat }}g</td><td>{{ choles }}g</td><td>{{ nat }}mg</td>
+                          </tr>
+                      </table>
+                      <p></p>
+                      {{ mes }}
+
                   </div>
               {% endif %}
             <hr>
@@ -231,9 +259,8 @@
 
     <div class="footer-copyright py-3">
 
-      © 2020 Copyright:
 
-      <a href="#" target="_blank"> 부산대학교 졸업과제 17조 칼로리 </a>
+      <a> 부산대학교 졸업과제 17조 칼로리 </a>
 
     </div>
 
