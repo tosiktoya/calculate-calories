@@ -25,7 +25,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/', methods=['GET', 'POST'])
+#메인 페이지
+@app.route('/')
+def render_file():
+    return render_template('index.html')
+
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if request.method == 'GET':
         return render_template('upload.html')
@@ -137,7 +142,7 @@ def upload():
                 mass, cal, carbo, pro, fat, choles, nat = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
                 cal_100 = round(calorie_dict[int(result)], 2)
 
-            # Alarm message when exceeding
+            # Alarm message when exceeding appropriate intake volume
             Alarm_message = " "
             exceed_message = "이(가) 일일 적정섭취량을 초과하였습니다."
 
