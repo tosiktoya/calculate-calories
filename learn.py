@@ -58,12 +58,19 @@ def testing():
             response.append([float(j)])
             image_names.append(img_path)
 
+    # testing
     testData = np.array(feature_mat, dtype=np.float32).reshape(-1, 94)
     responses = np.array(response, dtype=int)
     result = svm_model.predict(testData)[1]
-    result = np.ravel(result)
     mask = result == responses
 
+    # testing accuracy
+    correct = np.count_nonzero(mask)
+    print(correct)
+    print(result.size)
+    print((correct * 100.0) / result.size)
+    result = np.ravel(result)
+    
     # calculate calories
     for i in range(0, len(result)):
         volume = getVolume(result[i], fruit_areas[i], skin_areas[i], pix_cm[i], fruit_contours[i])
