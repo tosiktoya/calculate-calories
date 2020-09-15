@@ -113,6 +113,23 @@ def upload():
                     result = result_cnn + 1
 
             # 이미지에서 손가락이 없으면 cnn 으로만 label 예측
+            except cv2.error as e:
+                SkinState = False
+
+                # predict using cnn model
+                classifierLoad = tf.keras.models.load_model('model_v8.h5')
+
+                test_data = "./static/" + f.filename
+
+                test_image = image.load_img(test_data, target_size=(200, 200))
+                test_image1 = image.img_to_array(test_image)
+                test_image2 = np.expand_dims(test_image1, axis=0)
+
+                model_out = classifierLoad.predict(test_image2)
+                result_cnn = np.argmax(model_out)
+
+                result = result_cnn + 1
+
             except IndexError:
                 SkinState = False
 
@@ -139,6 +156,8 @@ def upload():
                 mass, cal, cal_100, carbo, pro, fat, choles, nat = getCalorie(result[0], volume)
             elif(SkinState == False):
                 volume = 0
+
+
                 mass, cal, carbo, pro, fat, choles, nat = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
                 cal_100 = round(calorie_dict[int(result)], 2)
 
