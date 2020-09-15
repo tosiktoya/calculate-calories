@@ -117,7 +117,7 @@ def upload():
                 SkinState = False
 
                 # predict using cnn model
-                classifierLoad = tf.keras.models.load_model('model_v8.h5')
+                classifierLoad = tf.keras.models.load_model('nonskincnn.h5')
 
                 test_data = "./static/" + f.filename
 
@@ -134,7 +134,7 @@ def upload():
                 SkinState = False
 
                 # predict using cnn model
-                classifierLoad = tf.keras.models.load_model('model_v8.h5')
+                classifierLoad = tf.keras.models.load_model('nonskincnn.h5')
 
                 test_data = "./static/" + f.filename
 
